@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Switcher</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(0, 0, 0);
+            color: #6a61ff;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            border-bottom: 2px solid #6a61ff;
+        }
+        .logo {
+            margin: 10px auto;
+            width: 220px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .title {
+            font-size: 48px;
+            margin-top: 40px;
+        }
+        .description {
+            margin: 20px auto;
+            max-width: 600px;
+            border-top: 2px solid #6a61ff;;
+            border-bottom: 2px solid #6a61ff;;
+            padding: 20px;
+        }
+        .download-button {
+            margin-top: 40px;
+            padding: 20px;
+            display: inline-block;
+            border: 3px solid #6a61ff;;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: black;
+        }
+        .page-2 {
+            display: none;
+            padding: 60px 0;
+            background-color: #0a0a2a;
+            border-top: 2px solid #6a61ff;
+            color: #6a61ff;
+            min-height: 100vh;
+        }
+        .page-2 .logo {
+            margin: 0 auto 40px auto;
+            width: 220px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .platform-button {
+            margin: 30px;
+            padding: 20px 40px;
+            font-size: 20px;
+            border: 2px solid #6a61ff;
+            background-color: #1a1a4d;
+            color: #6a61ff;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .platform-button:hover {
+            background-color: #6a61ff;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://i.imgur.com/k0HxHzo.png" alt="Logo" style="height: 100%; width: auto;" />
+        </div>
+    </header>
+
+    <section id="page1">
+        <div class="title">Status Switcher</div>
+        <div class="description">
+            <p>Ever seen those cool kids on discord with their status changing?</p>
+            <p>And when you ask them they reply with "its very hard coding you couldn't do it"</p>
+            <p>Well no more since Status Switcher has a simple UI and gets to the point, changes your status!</p>
+        </div>
+        <div class="download-button">Download</div>
+    </section>
+
+    <section id="page2" class="page-2">
+        <button class="platform-button" onclick="window.location.href='https://cdn.discordapp.com/attachments/1363961442054705214/1364626694031409192/Status_Switcher.app.zip?ex=680a5b25&is=680909a5&hm=493871e66a3a27372ac8d471dd0244fed678e67f4f87a1b440440165b05df1d9&'">MacOS X</button>
+        <button class="platform-button" onclick="window.location.href='https://cdn.discordapp.com/attachments/1363961442054705214/1364622160219344896/Status_Switcher.exe?ex=680a56ec&is=6809056c&hm=548da06e62313c796e7c44190bbef5b5c20a105d90fbe7a795605260666bc4ad&'">Windows</button>
+        <div style="width:100%;display:flex;justify-content:center;position:fixed;bottom:40px;left:0;">
+            <button id="back-button" class="platform-button" style="margin-top:40px;">Back</button>
+        </div>
+    </section>
+
+    <script>
+        const downloadButton = document.querySelector('.download-button');
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+
+        downloadButton.addEventListener('click', () => {
+            page1.style.display = 'none';
+            page2.style.display = 'block';
+        });
+        // Back button logic
+        const backButton = document.getElementById('back-button');
+        backButton.addEventListener('click', () => {
+            page2.style.display = 'none';
+            page1.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
